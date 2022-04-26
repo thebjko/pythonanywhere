@@ -1,10 +1,8 @@
-from imp import reload
-
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from decimal import Decimal
+from typing import Optional
 import urllib.parse
 import urllib.request
 import json
@@ -26,7 +24,7 @@ async def say_hello(name: str):
 
 
 class Item(BaseModel):
-    display: int | None = 45
+    display: Optional[int] = 45
     keywords: str
 
 
